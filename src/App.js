@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, useDeferredValue } from "react";
+import Banner from "./components/banner";
+import AddToDo from "./components/addToDo";
+import ToDoList from "./components/toDoList";
+import "./sass/banner.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <body className="ToDoApp">
+      <header className="ToDoApp__header">
+        <Banner />
       </header>
-    </div>
+      <main className="ToDoApp__section">
+        <AddToDo />
+        <ToDoList />
+      </main>
+    </body>
   );
 }
 
