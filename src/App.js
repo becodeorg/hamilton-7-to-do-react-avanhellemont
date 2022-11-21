@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "./components/banner";
 import AddToDo from "./components/addToDo";
-import ToDoList from "./components/ToDoList";
+import ToDoList from "./components/toDoList";
 import "./sass/banner.scss";
 import "./sass/addToDo.scss";
 import "./sass/toDoList.scss";
