@@ -4,15 +4,16 @@
   border: 0;
 }
 body {
-  margin: 20px;
-  background-color: #042326;
+  background-color: #fcbbff;
 }
-  .Banner {
-    display: flex;
-    margin: 20px;
-    justify-content: center;
+.Banner {
+  display: flex;
+  justify-content: center;
+  background-color: #f87aff;
+  margin-bottom: 20px;
+  padding: 30px;
 
-    h1 {
-      color: rgb(255, 255, 255);
-    }
+  h1 {
+    color: rgb(255, 255, 255);
   }
+}

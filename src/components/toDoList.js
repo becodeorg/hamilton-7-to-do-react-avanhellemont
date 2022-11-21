@@ -17,7 +17,7 @@ function Checkbox() {
 }
 
 function TodoList() {
-  const initialTodos = ["One", "Two"];
+  const initialTodos = ["Read a book", "Develop my projects"];
   const [todos, setTodos] = useState(initialTodos);
   return (
     <div className="TodoList">
