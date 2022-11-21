@@ -1,7 +1,7 @@
-import React, { useDeferredValue } from "react";
+import React from "react";
 import Banner from "./components/banner";
 import AddToDo from "./components/addToDo";
-import ToDoList from "./components/toDoList";
+import ToDoList from "./components/ToDoList";
 import "./sass/banner.scss";
 import "./sass/addToDo.scss";
 import "./sass/toDoList.scss";

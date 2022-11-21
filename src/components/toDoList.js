@@ -16,11 +16,11 @@ function Checkbox() {
   );
 }
 
-function TodoList() {
+function ToDoList() {
   const initialTodos = ["Read a book", "Develop my projects"];
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos/*, setTodos*/] = useState(initialTodos);
   return (
-    <div className="TodoList">
+    <div className="ToDoList">
       <ul>
         {todos.map((todo) => (
           <li>
@@ -31,5 +31,5 @@ function TodoList() {
     </div>
   );
 }
-export default TodoList;
+export default ToDoList;
 // 2
