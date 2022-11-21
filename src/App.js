@@ -1,4 +1,4 @@
-import React, { Component, useDeferredValue } from "react";
+import React, { useDeferredValue } from "react";
 import Banner from "./components/banner";
 import AddToDo from "./components/addToDo";
 import ToDoList from "./components/toDoList";

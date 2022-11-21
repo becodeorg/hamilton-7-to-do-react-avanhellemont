@@ -1,6 +1,3 @@
-import Banner from "./components/banner";
-import AddToDo from "./components/addToDo";
-import ToDoList from "./components/toDoList";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
