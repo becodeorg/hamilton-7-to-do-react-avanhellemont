@@ -1,4 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+
+const LSKEY = "MyTodoApp";
 
 function Checkbox() {
   const [isActive, setIsActive] = useState(false);
@@ -22,42 +25,53 @@ function Checkbox() {
   );
 }
 export default function AddToDo() {
-  const initialTodos = ["Read a book", "Develop my projects"]
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState([]);
+
   const inputRef = useRef();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const newTodo = [...todos];
 
-    const task = inputRef.current.value;
-    newTodo.push(task);
+    const nom = inputRef.current.value;
+    newTodo.push({ id: uuidv4(), nom: nom });
     setTodos(newTodo);
   };
-  
+
+  useEffect(() => {
+    if (todos.length > 0) localStorage.setItem(LSKEY, JSON.stringify(todos));
+  }, [todos]); // <<- look here
+
+  useEffect(() => {
+    if (localStorage.getItem(LSKEY)) {
+      const newList = JSON.parse(localStorage.getItem(LSKEY));
+      setTodos(newList);
+    }
+  }, []);
+
   //affichage
   return (
-<>
-    <form className="AddToDo" action="submit" onSubmit={handleSubmit}>
-      <input ref={inputRef}
-        className="AddToDo__input"
-        type="text"
-        placeholder="Type a new todo"
-      ></input>
-      <button className="AddToDo__button" >
-        Add Todo
-      </button>
-    </form>
+    <>
+      <form className="AddToDo" action="submit" onSubmit={handleSubmit}>
+        <input
+          ref={inputRef}
+          className="AddToDo__input"
+          type="text"
+          placeholder="Type a new todo"
+        ></input>
+        <button className="AddToDo__button">Add Todo</button>
+      </form>
 
-     <div className="ToDoList">
-     <ul>
-       {todos.map((todo, index) => (
-         <li key={index}>
-           <Checkbox />
-           {todo}
-         </li>
-       ))}
-     </ul>
-   </div>
-   </>
+      <div className="ToDoList">
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              <Checkbox />
+              {todo.nom}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
-};
+}
